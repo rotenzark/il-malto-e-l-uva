@@ -84,15 +84,15 @@
   if (hasGsap && !reducedMotion) {
     gsap.utils.toArray('.reveal').forEach(function (el) {
       if (el.classList.contains('lato')) return;
-      gsap.fromTo(el, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+      gsap.fromTo(el, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .7, ease: 'power2.out', immediateRender: false, scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
     });
     gsap.to('#heroPhoto', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
     /* GESTO-FIRMA: malto da sinistra, uva da destra, si incontrano nel & */
     var malto = document.querySelector('.lato-malto'), uva = document.querySelector('.lato-uva'), amp = document.querySelector('.amp');
     if (malto && uva) {
       var tl = gsap.timeline({ scrollTrigger: { trigger: '#nome', start: 'top 72%', once: true } });
-      tl.fromTo(malto, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: .8, ease: 'power3.out' }, 0)
-        .fromTo(uva, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: .8, ease: 'power3.out' }, 0);
+      tl.fromTo(malto, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: .8, ease: 'power3.out', immediateRender: false }, 0)
+        .fromTo(uva, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: .8, ease: 'power3.out', immediateRender: false }, 0);
       if (amp) tl.fromTo(amp, { opacity: 0, scale: .5 }, { opacity: 1, scale: 1, duration: .5, ease: 'back.out(2)' }, .5);
     }
   } else {
